@@ -24,31 +24,31 @@ npm run dev -- --open
 
 ## The Threlte packages:
 
-@threlte/core
+@threlte/core:
 Compose three.js scenes declaratively and state-driven. Three.js and Threlte's core the library are required.
 
 
-@threlte/extras
+@threlte/extras:
 Components, helpers, hooks and more that extend the core functionality.
 
 
-@threlte/gltf
+@threlte/gltf:
 A command-line tool that turns GLTF assets into declarative and re-usable Threlte components. The generated Threlte components make use of the package @threlte/extras.
 
 
-@threlte/rapier
+@threlte/rapier:
 Components and hooks to use the Rapier physics engine in Threlte.
 
 
-@threlte/theatre
+@threlte/theatre:
 Components and hooks to use the animation library Theatre.js in Threlte.
 
 
-@threlte/xr
+@threlte/xr:
 Components and hooks for VR and AR.
 
 
-@types/three
+@types/three:
 TypeScript types for three.js.
 
 Install the packages with npm, pnpm, yarn or any other package manager you prefer.
