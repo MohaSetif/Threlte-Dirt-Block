@@ -1,4 +1,4 @@
-# create-svelte
+# create-threlte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
@@ -7,11 +7,8 @@ Everything you need to build a Svelte project, powered by [`create-svelte`](http
 If you're seeing this, you've probably already done this step. Congrats!
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+# create a new project:
+npm create threlte my-project
 ```
 
 ## Developing
@@ -25,14 +22,42 @@ npm run dev
 npm run dev -- --open
 ```
 
-## Building
+## The Threlte packages:
 
-To create a production version of your app:
+@threlte/core
+Compose three.js scenes declaratively and state-driven. Three.js and Threlte's core the library are required.
 
-```bash
-npm run build
+
+@threlte/extras
+Components, helpers, hooks and more that extend the core functionality.
+
+
+@threlte/gltf
+A command-line tool that turns GLTF assets into declarative and re-usable Threlte components. The generated Threlte components make use of the package @threlte/extras.
+
+
+@threlte/rapier
+Components and hooks to use the Rapier physics engine in Threlte.
+
+
+@threlte/theatre
+Components and hooks to use the animation library Theatre.js in Threlte.
+
+
+@threlte/xr
+Components and hooks for VR and AR.
+
+
+@types/three
+TypeScript types for three.js.
+
+Install the packages with npm, pnpm, yarn or any other package manager you prefer.
+```
+npm install three @threlte/core
+
 ```
 
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+> To learn more about Threlte, check this documentation website: https://threlte.xyz/
