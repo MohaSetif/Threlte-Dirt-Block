@@ -1,18 +1,20 @@
-<script>
+<script lang="ts">
   import { T, useFrame } from '@threlte/core'
-  import { interactivity } from '@threlte/extras';
+  import { ContactShadows, Float, OrbitControls, interactivity } from '@threlte/extras';
 	import { cubicOut } from 'svelte/easing';
   import { spring } from 'svelte/motion';
   import { tweened } from 'svelte/motion';
   import dirt_texture from "../../lib/texture/s189772745713394276_p3856_i147_w750.jpeg"
-  import { TextureLoader } from 'three';
+  import { BoxGeometry, TextureLoader } from 'three';
 
-  let rotation = 0;
   let scaleValue = 1;
 
-  useFrame((state, delta) => {
-    rotation += delta;
-  });
+  let pos = {
+    x: 0
+  }
+  useFrame(() => {
+    pos.x = Math.sin(Date.now() / 2000)
+  })
 
   interactivity();
 
@@ -44,18 +46,42 @@
 
 <T.PerspectiveCamera
   makeDefault
-  position={[10, 10, 10]}
-  on:create={({ ref }) => {
-    ref.lookAt(0, 1, 0);
-  }}
+  position={[10, 5, 5]}
+  fov={25}
+>
+  <OrbitControls
+    enabled={false}
+    autoRotate
+    autoRotateSpeed={0.5}
+    target.y={1}
+  />
+</T.PerspectiveCamera>
+<T.DirectionalLight
+  intensity={0.8}
+  position.x={5}
+  position.y={10}
+/>
+<T.AmbientLight intensity={0.2} />
+
+<ContactShadows
+  opacity={1}
+  scale={10}
+  blur={1}
+  far={10}
+  resolution={256}
+  color="#000000"
 />
 
 {#if $scale < (Math.max(window.innerWidth, window.innerHeight) / 2)}
+<Float
+  floatIntensity={5}
+  scale={$scale}
+>
   <T.Mesh
     scale={$scale}
-    rotation.y={rotation}
   >
     <T.BoxGeometry />
     <T.MeshBasicMaterial map={texture} />
   </T.Mesh>
+  </Float>
 {/if}
